@@ -1,22 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "HoloClean (single container)",
+  "name": "HC-minimal",
   "image": "mcr.microsoft.com/devcontainers/python:3.8",
-  "features": {
-    "ghcr.io/devcontainers/features/postgres:1": {
-      "version": "11",
-      "user": "holocleanuser",
-      "password": "abcd1234",
-      "db": "holo"
-    }
-  },
-  "containerEnv": {
-    "PGHOST": "localhost",
-    "PGPORT": "5432",
-    "PGDATABASE": "holo",
-    "PGUSER": "holocleanuser",
-    "PGPASSWORD": "abcd1234"
-  },
-  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && git lfs install --skip-repo",
   "customizations": { "vscode": { "extensions": ["ms-python.python"] } }
 }
