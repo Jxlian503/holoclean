@@ -1,8 +1,9 @@
 {
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "HoloClean Codespace",
   "dockerComposeFile": ".devcontainer/compose.yaml",
   "service": "app",
+  "workspaceFolder": "/workspaces/holoclean",
   "forwardPorts": [5432],
   "customizations": { "vscode": { "extensions": ["ms-python.python"] } }
 }
-
