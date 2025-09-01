@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:11
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: holo
+      POSTGRES_USER: holocleanuser
+      POSTGRES_PASSWORD: abcd1234
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build:
+      context: ..                   # WICHTIG: Repo-Root als Build-Kontext
+      dockerfile: .devcontainer/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: sleep infinity
